@@ -19,7 +19,7 @@ const resolvers = {
 
             return { token, user };
         },
-        
+
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 
@@ -35,7 +35,7 @@ const resolvers = {
             return { token, user };
         },
 
-        saveBook: async (parent, { bookId }, context) => {
+        saveBook: async (parent, { bookData }, context) => {
             if (context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
