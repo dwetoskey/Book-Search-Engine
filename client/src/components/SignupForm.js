@@ -12,7 +12,9 @@ const SignupForm = () => {
       password: '',
     });
     const [validated] = useState(false);
-    const[showAlert, setShowAlert] = useMutation(ADD_USER);
+    const[showAlert, setShowAlert] = useState(false);
+
+    const [addUser, { error }] = useMutation(ADD_USER);
 
   useEffect(() => {
     if (error) {
