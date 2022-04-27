@@ -26,10 +26,7 @@ const SignupForm = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ 
-      ...userFormData,
-      [name]: value,
-    });
+    setUserFormData({ ...userFormData, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
@@ -47,6 +44,7 @@ const SignupForm = () => {
         variables: { ...userFormData },
       });
       Auth.login(data.addUser.token);
+      console.log(data);
     } catch (err) {
       console.error(err);
     }
